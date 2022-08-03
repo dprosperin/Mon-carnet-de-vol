@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import {Appbar, TextInput, Button, Snackbar} from 'react-native-paper';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
-import {factorBase, magneticCap, windTime, addResult} from '../src/utils';
+import Result from '../src/Result';
+import {addResult} from '../src/services';
 
 const bootstrapStyleSheet = new BootstrapStyleSheet();
 const {s} = bootstrapStyleSheet;
@@ -63,17 +64,9 @@ const Home = ({navigation}) => {
               distance !== ''
             ) {
               setHasError(false);
-              addResult({
-                factorBase: factorBase(airplaneSpeed, windAngle, windSpeed),
-                magneticCap: magneticCap(windSpeed, windAngle, airplaneSpeed),
-                windTime: windTime(
-                  distance,
-                  airplaneSpeed,
-                  windAngle,
-                  windSpeed,
-                ),
-                date: new Date().toISOString(),
-              }).then(() => navigation.navigate('Historique'));
+              addResult(
+                new Result({airplaneSpeed, windAngle, windSpeed, distance}),
+              ).then(() => navigation.navigate('Historique'));
             } else {
               event.preventDefault();
               setHasError(true);

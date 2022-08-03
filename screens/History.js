@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
 import {Appbar, Card, Paragraph} from 'react-native-paper';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
-import {getAllResults} from '../src/utils';
+import {getAllResults} from '../src/services';
 
 const bootstrapStyleSheet = new BootstrapStyleSheet();
 const {s} = bootstrapStyleSheet;
@@ -43,16 +43,12 @@ const History = () => {
               <Card elevation={1} style={s.mt3}>
                 <Card.Title title="Calcul VFR" />
                 <Card.Content>
-                  <Paragraph>
-                    facteur de base = {factorBase.toFixed(2)} min/NM
-                  </Paragraph>
-                  <Paragraph>
-                    cap magnetique = {magneticCap.toFixed(2)}
-                  </Paragraph>
-                  <Paragraph>temps avec vent = {windTime.toFixed(2)}</Paragraph>
+                  <Paragraph>facteur de base = {factorBase} min/NM</Paragraph>
+                  <Paragraph>cap magnetique = {magneticCap}</Paragraph>
+                  <Paragraph>temps avec vent = {windTime}</Paragraph>
                   <Paragraph style={[s.textMuted]}>
                     Calculé le
-                    {date.toLocaleDateString('fr-FR', dateOptionsFormat)}
+                    {' ' + date.toLocaleDateString('fr-FR', dateOptionsFormat)}
                   </Paragraph>
                 </Card.Content>
               </Card>
