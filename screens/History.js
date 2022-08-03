@@ -8,7 +8,7 @@ const bootstrapStyleSheet = new BootstrapStyleSheet();
 const {s} = bootstrapStyleSheet;
 
 const History = () => {
-  const [allResults, setAllResults] = useState({});
+  const [allResults, setAllResults] = useState([]);
 
   const styles = StyleSheet.create({
     appBg: {
