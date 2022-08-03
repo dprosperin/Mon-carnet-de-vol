@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
-import {Appbar, Card, Paragraph} from 'react-native-paper';
+import {Appbar, Card, Paragraph, Title} from 'react-native-paper';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import {getAllResults} from '../src/services';
 
@@ -29,6 +29,11 @@ const History = () => {
       <View style={[s.container, s.h90]}>
         <FlatList
           data={allResults}
+          ListEmptyComponent={
+            <Title style={[s.textMuted, s.textCenter]}>
+              L'historique est vide
+            </Title>
+          }
           renderItem={({item}) => {
             let {factorBase, magneticCap, windTime, date} = item;
 
