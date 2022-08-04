@@ -2,9 +2,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import uuid from 'react-native-uuid';
 import Result from './Result';
 
-type RawResults = Result["id"][]
+type RawResults = Result['id'][];
 
-const getAllResults = async (isRaw = false): Promise<Result[] | RawResults | null> => {
+const getAllResults = async (
+  isRaw = false,
+): Promise<Result[] | RawResults | null> => {
   const jsonValue = await AsyncStorage.getItem('@Results');
   if (!jsonValue) {
     return null;
