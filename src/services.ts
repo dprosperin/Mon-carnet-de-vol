@@ -7,12 +7,12 @@ const getAllResults = async (): Promise<Result[] | null> => {
   return jsonValue != null ? Object.values(JSON.parse(jsonValue)) : null;
 };
 
-const getResultById = async (id: ID): Promise<Result | null> => {
+const getResultById = async (id: Result['id']): Promise<Result | null> => {
   const allResults = await getAllResults();
   return allResults != null ? allResults[id] : null;
 };
 
-const removeResultById = async (id: ID) => {
+const removeResultById = async (id: Result['id']) => {
   // TODO
 };
 
