@@ -8,6 +8,7 @@ const getAllResults = async (): Promise<Result[] | null> => {
 };
 
 const getResultById = async (id: Result['id']): Promise<Result | null> => {
+  id = id.toString()
   const allResults = await getAllResults();
   return allResults != null ? allResults[id] : null;
 };
@@ -18,7 +19,7 @@ const removeResultById = async (id: Result['id']) => {
 
 const addResult = async (result: Result) => {
   const allResults = await getAllResults();
-  const id = result.id ? result.id : uuid.v4();
+  const id = (result.id ? result.id : uuid.v4()).toString();
   const jsonValue = JSON.stringify({...allResults, [id]: result});
   return await AsyncStorage.setItem('@Results', jsonValue);
 };
