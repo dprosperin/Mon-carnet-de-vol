@@ -16,7 +16,7 @@ const getAllResults = async (
 };
 
 const getResultById = async (id: Result['id']): Promise<Result | null> => {
-  id = id.toString()
+  id = id.toString();
   const allResults = await getAllResults();
   return allResults != null ? allResults[id] : null;
 };
