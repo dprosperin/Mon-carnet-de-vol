@@ -19,6 +19,15 @@ const getResultById = async (id: Result['id']): Promise<Result | null> => {
   return allResults != null ? allResults[id] : null;
 };
 
+const isExistingResultById = async (
+  id: Result['id'],
+): Promise<boolean | null> => {
+  const allResults = await getAllResults(true);
+  id = id.toString();
+  const result = allResults?.[id];
+  return !!result;
+};
+
 const removeResultById = async (id: Result['id']) => {
   // TODO
 };
@@ -30,4 +39,10 @@ const addResult = async (result: Result) => {
   return await AsyncStorage.setItem('@Results', jsonValue);
 };
 
-export {getAllResults, getResultById, removeResultById, addResult};
+export {
+  getAllResults,
+  getResultById,
+  removeResultById,
+  addResult,
+  isExistingResultById,
+};
