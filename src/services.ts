@@ -49,10 +49,14 @@ const addResult = async (result: Result) => {
   return await AsyncStorage.setItem('@Results', jsonValue);
 };
 
+const clearAllResults = async () =>
+  await AsyncStorage.setItem('@Results', '{}');
+
 export {
   getAllResults,
   getResultById,
   removeResultById,
   addResult,
   isExistingResultById,
+  clearAllResults,
 };
