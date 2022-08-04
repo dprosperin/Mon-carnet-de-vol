@@ -31,7 +31,15 @@ const isExistingResultById = async (
 };
 
 const removeResultById = async (id: Result['id']) => {
-  // TODO
+  id = id.toString();
+  if (!(await isExistingResultById(id))) {
+    throw new Error(
+      `The result ${id} does not exist in the storage. It cannot be removed.`,
+    );
+  }
+  const allResults = await getAllResults(true);
+  delete allResults?.[id];
+  return await AsyncStorage.setItem('@Results', JSON.stringify(allResults));
 };
 
 const addResult = async (result: Result) => {
