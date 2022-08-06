@@ -49,7 +49,7 @@ const removeResultById = async (id: Result['id']) => {
 };
 
 const addResult = async (result: Result) => {
-  const allResults = await getAllResults();
+  const allResults = await getAllResults(true);
   const id = (result.id ? result.id : uuid.v4()).toString();
   const jsonValue = JSON.stringify({...allResults, [id]: result});
   return await AsyncStorage.setItem('@Results', jsonValue);
