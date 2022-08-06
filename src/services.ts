@@ -12,7 +12,12 @@ const getAllResults = async (
   if (!jsonValue) {
     return null;
   } else {
-    return isRaw ? JSON.parse(jsonValue) : Object.values(JSON.parse(jsonValue));
+    if (isRaw) {
+      return JSON.parse(jsonValue);
+    } else {
+      const value: Result[] = Object.values(JSON.parse(jsonValue));
+      return value.map(result => new Result(result));
+    }
   }
 };
 
