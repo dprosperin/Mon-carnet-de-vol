@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import uuid from 'react-native-uuid';
 import Result from './Result';
@@ -52,6 +53,20 @@ const addResult = async (result: Result) => {
 const clearAllResults = async () =>
   await AsyncStorage.setItem('@Results', '{}');
 
+const useResults = (initialValue, isRaw = false) => {
+  if (!initialValue) {
+    initialValue = isRaw ? [] : {};
+  }
+
+  const [results, setResults] = useState(initialValue);
+
+  const sync = async () =>
+    getAllResults(isRaw).then(resultsFromStorage =>
+      setResults(resultsFromStorage ? resultsFromStorage : isRaw ? [] : {}),
+    );
+  return [results, sync];
+};
+
 export {
   getAllResults,
   getResultById,
@@ -59,4 +74,5 @@ export {
   addResult,
   isExistingResultById,
   clearAllResults,
+  useResults,
 };
