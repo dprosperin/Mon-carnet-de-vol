@@ -76,7 +76,7 @@ const ResultsMenu = ({
   return (
     <>
       <View style={styles.menuContainer}>
-        <View style={[s.mrAuto]}>
+        <View style={[s.mrAuto, {flex: 0.75}]}>
           <DropDown
             label={'Trier par'}
             mode={'flat'}
