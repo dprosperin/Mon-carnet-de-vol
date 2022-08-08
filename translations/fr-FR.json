@@ -32,7 +32,7 @@
     },
     "Display" : {
       "emptyHistory" : "L'historique est vide",
-      "calculatedOn" : "Calculé le {{- createdDate}}.",
+      "calculatedOn" : "Calculé le {{result.date, [[\"day\", \"numeric\"], [\"month\", \"long\"], [\"year\", \"numeric\"]]}}.",
       "factorBase" : "$t(Computed.factorBase) = {{result.factorBase}} $t(Units.minutes)",
       "magneticCap" : "$t(Computed.magneticCap) = {{result.magneticCap}} $t(Units.degrees)",
       "windTime" : "$t(Computed.windTime) = {{result.windTime}} $t(Units.minutes_short) * $t(Units.meters_short)"

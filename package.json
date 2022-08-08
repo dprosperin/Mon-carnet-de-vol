@@ -17,6 +17,7 @@
     "i18next": "^3.5.2",
     "i18next-react-native-language-detector": "^1.0.2",
     "install": "^0.13.0",
+    "intl": "^1.2.4",
     "npm": "^8.15.1",
     "react": "17.0.1",
     "react-native": "0.64.3",

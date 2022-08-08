@@ -72,12 +72,6 @@ const ResultsList = ({
         </Title>
       }
       renderItem={({item}: {item: Result}) => {
-        const dateOptionsFormat: Intl.DateTimeFormatOptions = {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-        };
-
         return (
           <Card elevation={1} style={s.mt3} onPress={() => onPressResult(item)}>
             <Card.Title title="Calcul VFR" />
@@ -92,12 +86,7 @@ const ResultsList = ({
                 {i18next.t('Display.windTime', {result: item})}
               </Paragraph>
               <Paragraph style={[s.textMuted]}>
-                {i18next.t('Display.calculatedOn', {
-                  createdDate: new Date(item.date).toLocaleDateString(
-                    i18next.language,
-                    dateOptionsFormat,
-                  ),
-                })}
+                {i18next.t('Display.calculatedOn', {result: item})}
               </Paragraph>
               <Card.Actions style={[s.justifyContentEnd]}>
                 <Button
