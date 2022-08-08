@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
+import i18next from './translations/i18next';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -24,20 +25,20 @@ const App = () => {
       <NavigationContainer theme={theme}>
         <Tab.Navigator>
           <Tab.Screen
-            name="Calculs VFR"
+            name={i18next.t('VisualFlightRulesCalculator.title_short')}
             component={Home}
             options={{
-              tabBarLabel: 'Calculs VFR',
+              tabBarLabel: i18next.t('VisualFlightRulesCalculator.title_short'),
               tabBarIcon: ({color}) => (
                 <Icon name="assignment" color={color} size={26} />
               ),
             }}
           />
           <Tab.Screen
-            name="Historique"
+            name={i18next.t('History.title')}
             component={History}
             options={{
-              tabBarLabel: 'Historique',
+              tabBarLabel: i18next.t('History.title'),
               tabBarIcon: ({color}) => (
                 <Icon name="history" color={color} size={26} />
               ),

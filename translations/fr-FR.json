@@ -1,0 +1,73 @@
+{
+  "translation" : {
+    "History" : {
+      "title": "Historique"
+    },
+    "VisualFlightRulesCalculator": {
+      "title": "Calculateur des règles du vol à vue",
+      "title_short" : "Calculateur VFR"
+    },
+
+    "Inputs" : {
+      "airplaneSpeed" : "Vitesse de l'avion",
+      "windSpeed" : "Vitesse du vent",
+      "windAngle" : "Angle du vent",
+      "distance" : "Distance"
+    },
+
+    "Form": {
+      "emptyField" : "Un champs est vide.",
+      "emptyField_plural" : "Plusieurs champs sont vides.",
+      "emptyFieldWithCount_plural": "{{count}} champs sont vides."
+    },
+    "Actions" : {
+      "add" : "Ajouter",
+      "refresh" : "Rafraîchir",
+      "remove": "Supprimer",
+      "calculate": "Calculer",
+      "sortBy" : "Trier par",
+      "sortOrder" : "Ordre de tri",
+      "ascending" : "croisant",
+      "descending" : "décroissant"
+    },
+    "Display" : {
+      "emptyHistory" : "L'historique est vide",
+      "calculatedOn" : "Calculé le {{- createdDate}}.",
+      "factorBase" : "$t(Computed.factorBase) = {{result.factorBase}} $t(Units.minutes)",
+      "magneticCap" : "$t(Computed.magneticCap) = {{result.magneticCap}} $t(Units.degrees)",
+      "windTime" : "$t(Computed.windTime) = {{result.windTime}} $t(Units.minutes_short) * $t(Units.meters_short)"
+    },
+
+    "Computed" : {
+      "factorBase" : "Facteur de base",
+      "factorBase_short": "Fb",
+      "magneticCap" : "Cap magnétique",
+      "magneticCap_short" : "Cm",
+      "windTime" : "Temps avec vent",
+      "windTime_short" : "Tv"
+    },
+    "id" : "Identifiant",
+    "createdDate" : "Date de création",
+
+    "Units" : {
+      "metersPerSecond" : "m/s",
+      "kmPerHour" : "km/h",
+      "degrees" : "degrés",
+      "degrees_short" : "deg",
+      "radian" : "radian",
+      "radian_short" : "rad",
+      "meters" : "mètres",
+      "meters_short" : "m",
+      "minutes" : "minutes",
+      "minutes_short" : "min",
+      "nauticalMile" : "Mille nautique",
+      "nauticalMile_short" : "MN",
+      "knot": "noeuds",
+      "knot_short" : "kt"
+    }, 
+    "Error" : {
+      "unspecific": "Quelque chose n'a pas fonctionné.",
+      "removeError": "La suppression de cette élément a échoué."
+    }
+  }
+}

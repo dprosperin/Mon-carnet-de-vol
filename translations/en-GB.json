@@ -1,0 +1,73 @@
+{
+  "translation" : {
+    "History" : {
+      "title": "History"
+    },
+    "VisualFlightRulesCalculator": {
+      "title": "Visual Flight Rules Calculator",
+      "title_short" : "VFR Calculator"
+    },
+
+    "Inputs" : {
+      "airplaneSpeed" : "Airplane speed",
+      "windSpeed" : "Wind speed",
+      "windAngle" : "Wind angle",
+      "distance" : "Distance"
+    },
+
+    "Form": {
+      "emptyField" : "A field is empty.",
+      "emptyField_plural" : "Several fields are empty.",
+      "emptyFieldWithCount_plural": "{{count}} fields are empty."
+    },
+    "Actions" : {
+      "add" : "Add",
+      "refresh" : "Refresh",
+      "remove": "Remove",
+      "calculate": "Calculate",
+      "sortBy" : "Sort by",
+      "sortOrder" : "Sort order",
+      "ascending" : "ascending",
+      "descending" : "descending"
+    },
+    "Display" : {
+      "emptyHistory" : "History is empty.",
+      "calculatedOn" : "Calculated on {{- createdDate}}.",
+      "factorBase" : "$t(Computed.factorBase) = {{result.factorBase}} $t(Units.minutes)",
+      "magneticCap" : "$t(Computed.magneticCap) = {{result.magneticCap}} $t(Units.degrees)",
+      "windTime" : "$t(Computed.windTime) = {{result.windTime}} $t(Units.minutes_short) * $t(Units.meters_short)"
+    },
+
+    "Computed" : {
+      "factorBase" : "Factor base",
+      "factorBase_short": "Fb",
+      "magneticCap" : "Magnetic cap",
+      "magneticCap_short" : "Mc",
+      "windTime" : "Wind time",
+      "windTime_short" : "Wt"
+    },
+    "id" : "ID",
+    "createdDate" : "Created date",
+
+    "Units" : {
+      "metersPerSecond" : "m/s",
+      "kmPerHour" : "km/h",
+      "degrees" : "degrees",
+      "degrees_short" : "deg",
+      "radian" : "radian",
+      "radian_short" : "rad",
+      "meters" : "meters",
+      "meters_short" : "m",
+      "minutes" : "minutes",
+      "minutes_short" : "min",
+      "nauticalMile" : "Nautical Mile",
+      "nauticalMile_short" : "NM",
+      "knot": "knot",
+      "knot_short" : "kt"
+    }, 
+    "Error" : {
+      "unspecific": "Something went wrong.",
+      "removeError": "The deletion of this item failed."
+    }
+  }
+}

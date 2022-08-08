@@ -4,6 +4,7 @@ import {Appbar} from 'react-native-paper';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import {useResults, clearAllResults} from '../src/services';
 import {ResultsList, useToggleSortOrder} from '../components/ResultsList';
+import i18next from '../translations/i18next';
 
 const bootstrapStyleSheet = new BootstrapStyleSheet();
 const {s} = bootstrapStyleSheet;
@@ -22,7 +23,7 @@ const History = () => {
   return (
     <View style={styles.appBg}>
       <Appbar.Header>
-        <Appbar.Content title="Historique" />
+        <Appbar.Content title={i18next.t('History.title')} />
       </Appbar.Header>
 
       <View style={[s.container, s.h90]}>

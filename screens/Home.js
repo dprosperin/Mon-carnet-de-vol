@@ -4,6 +4,7 @@ import {Appbar, TextInput, Button, Snackbar} from 'react-native-paper';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import Result from '../src/Result';
 import {addResult} from '../src/services';
+import i18next from '../translations/i18next';
 
 const bootstrapStyleSheet = new BootstrapStyleSheet();
 const {s} = bootstrapStyleSheet;
@@ -18,38 +19,40 @@ const Home = ({navigation}) => {
   return (
     <View>
       <Appbar.Header>
-        <Appbar.Content title="Calculs VFR" />
+        <Appbar.Content
+          title={i18next.t('VisualFlightRulesCalculator.title_short')}
+        />
       </Appbar.Header>
       <View style={[s.container, s.h90]}>
         <TextInput
           style={s.mt3}
-          label="Vitesse de l'avion"
-          placeholder="en m/s"
+          label={i18next.t('Inputs.airplaneSpeed')}
+          placeholder={i18next.t('Units.metersPerSecond')}
           mode="outlined"
           value={airplaneSpeed.toString()}
           onChangeText={value => setAirplaneSpeed(value)}
         />
         <TextInput
           style={s.mt3}
-          label="Vitesse du vent"
-          placeholder="en m/s"
+          label={i18next.t('Inputs.windSpeed')}
+          placeholder={i18next.t('Units.metersPerSecond')}
           mode="outlined"
           value={windSpeed.toString()}
           onChangeText={value => setWindSpeed(value)}
         />
         <TextInput
           style={s.mt3}
-          label="Angle du vent"
+          label={i18next.t('Inputs.windAngle')}
           mode="outlined"
-          placeholder="en degrés"
+          placeholder={i18next.t('Units.degrees')}
           value={windAngle.toString()}
           onChangeText={value => setWindAngle(value)}
         />
         <TextInput
           style={s.mt3}
-          label="Distance"
+          label={i18next.t('Inputs.distance')}
           mode="outlined"
-          placeholder="en m"
+          placeholder={i18next.t('Units.meters')}
           value={distance.toString()}
           onChangeText={value => setDistance(value)}
         />
@@ -66,16 +69,16 @@ const Home = ({navigation}) => {
               setHasError(false);
               addResult(
                 new Result({airplaneSpeed, windAngle, windSpeed, distance}),
-              ).then(() => navigation.navigate('Historique'));
+              ).then(() => navigation.navigate(i18next.t('History.title')));
             } else {
               event.preventDefault();
               setHasError(true);
             }
           }}>
-          Calculer
+          {i18next.t('Actions.calculate')}
         </Button>
         <Snackbar visible={hasError} onDismiss={() => setHasError(false)}>
-          Un ou plusieurs champs sont vides
+          {i18next.t('Form.emptyField_other')}
         </Snackbar>
       </View>
     </View>

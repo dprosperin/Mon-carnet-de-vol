@@ -4,6 +4,7 @@ import {Card, Paragraph, Title, Button} from 'react-native-paper';
 import Result from '../src/Result';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import ResultsMenu from './ResultsMenu';
+import i18next from '../translations/i18next';
 
 type ResultsListProps = {
   results: Result[];
@@ -67,11 +68,10 @@ const ResultsList = ({
       }
       ListEmptyComponent={
         <Title style={[s.textMuted, s.textCenter, s.mt2]}>
-          L'historique est vide
+          {i18next.t('Display.emptyHistory')}
         </Title>
       }
       renderItem={({item}: {item: Result}) => {
-        let {factorBase, magneticCap, windTime, date} = item;
         const dateOptionsFormat: Intl.DateTimeFormatOptions = {
           day: 'numeric',
           month: 'long',
@@ -82,12 +82,22 @@ const ResultsList = ({
           <Card elevation={1} style={s.mt3} onPress={() => onPressResult(item)}>
             <Card.Title title="Calcul VFR" />
             <Card.Content>
-              <Paragraph>facteur de base = {factorBase} min/NM</Paragraph>
-              <Paragraph>cap magnetique = {magneticCap}</Paragraph>
-              <Paragraph>temps avec vent = {windTime}</Paragraph>
+              <Paragraph>
+                {i18next.t('Display.factorBase', {result: item})}
+              </Paragraph>
+              <Paragraph>
+                {i18next.t('Display.magneticCap', {result: item})}
+              </Paragraph>
+              <Paragraph>
+                {i18next.t('Display.windTime', {result: item})}
+              </Paragraph>
               <Paragraph style={[s.textMuted]}>
-                Calculé le
-                {' ' + date.toLocaleDateString('fr-FR', dateOptionsFormat)}
+                {i18next.t('Display.calculatedOn', {
+                  createdDate: new Date(item.date).toLocaleDateString(
+                    i18next.language,
+                    dateOptionsFormat,
+                  ),
+                })}
               </Paragraph>
               <Card.Actions style={[s.justifyContentEnd]}>
                 <Button
@@ -95,7 +105,7 @@ const ResultsList = ({
                   mode="contained"
                   uppercase={false}
                   onPress={() => onDelete(item)}>
-                  Supprimer
+                  {i18next.t('Actions.remove')}
                 </Button>
               </Card.Actions>
             </Card.Content>

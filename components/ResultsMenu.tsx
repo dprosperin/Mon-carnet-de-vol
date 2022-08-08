@@ -4,6 +4,7 @@ import {Divider, IconButton, Colors} from 'react-native-paper';
 import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 import Result from '../src/Result';
 import DropDown from 'react-native-paper-dropdown';
+import i18next from '../translations/i18next';
 
 const bootstrapStyleSheet = new BootstrapStyleSheet();
 const {s} = bootstrapStyleSheet;
@@ -31,35 +32,35 @@ type ResultsMenuProps = {
 
 const sortByList = [
   {
-    label: 'facteur de base',
+    label: i18next.t('Computed.factorBase'),
     value: 'factorBase',
   },
   {
-    label: 'cap magnetique',
+    label: i18next.t('Computed.magneticCap'),
     value: 'magneticCap',
   },
   {
-    label: 'temps avec vent',
+    label: i18next.t('Computed.windTime'),
     value: 'windTime',
   },
   {
-    label: "vitesse de l'avion",
+    label: i18next.t('Inputs.airplaneSpeed'),
     value: 'airplaneSpeed',
   },
   {
-    label: "l'angle du vent",
+    label: i18next.t('Inputs.windAngle'),
     value: 'windAngle',
   },
   {
-    label: 'distance',
+    label: i18next.t('Inputs.distance'),
     value: 'distance',
   },
   {
-    label: 'vitesse du vent',
+    label: i18next.t('Inputs.windSpeed'),
     value: 'windSpeed',
   },
   {
-    label: 'date',
+    label: i18next.t('createdDate'),
     value: 'date',
   },
 ];
@@ -78,7 +79,7 @@ const ResultsMenu = ({
       <View style={styles.menuContainer}>
         <View style={[s.mrAuto, {flex: 0.75}]}>
           <DropDown
-            label={'Trier par'}
+            label={i18next.t('Actions.sortBy')}
             mode={'flat'}
             visible={showDropDown}
             showDropDown={() => setShowDropDown(true)}
