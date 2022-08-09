@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import i18next from './translations/i18next';
+import './prod/sentry';
 
 const Tab = createMaterialBottomTabNavigator();
 
