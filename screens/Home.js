@@ -78,7 +78,7 @@ const Home = ({navigation}) => {
           {i18next.t('Actions.calculate')}
         </Button>
         <Snackbar visible={hasError} onDismiss={() => setHasError(false)}>
-          {i18next.t('Form.emptyField_other')}
+          {i18next.t('Form.emptyField_plural')}
         </Snackbar>
       </View>
     </View>

@@ -74,7 +74,7 @@ const ResultsList = ({
       renderItem={({item}: {item: Result}) => {
         return (
           <Card elevation={1} style={s.mt3} onPress={() => onPressResult(item)}>
-            <Card.Title title="Calcul VFR" />
+            <Card.Title title={i18next.t('Display.resultOfCalculations')} />
             <Card.Content>
               <Paragraph>
                 {i18next.t('Display.factorBase', {result: item})}

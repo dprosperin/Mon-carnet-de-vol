@@ -31,6 +31,7 @@
       "descending" : "descending"
     },
     "Display" : {
+      "resultOfCalculations" : "Result of calculations",
       "emptyHistory" : "History is empty.",
       "calculatedOn" : "Calculated on {{result.date, [[\"day\", \"numeric\"], [\"month\", \"long\"], [\"year\", \"numeric\"]]}}.",
       "factorBase" : "$t(Computed.factorBase) = {{result.factorBase}} $t(Units.minutes)",
