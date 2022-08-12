@@ -24,17 +24,22 @@ const {styles: s} = bootstrapStyleSheet;
 
 const sort = (
   results: Result[],
-  sortBy: keyof Result,
+  sortBy: keyof {[x: string]: Result},
   sortOrder: 'ascending' | 'descending',
 ): Result[] => {
   results.sort((a, b) => {
-    const operand1 = parseFloat(a[sortBy] ? a[sortBy] : 0);
-    const operand2 = parseFloat(b[sortBy] ? b[sortBy] : 0);
+    let previous = a[sortBy];
+    let next = b[sortBy];
+
+    if (parseFloat(previous) && parseFloat(next)) {
+      previous = parseFloat(previous ? previous : 0);
+      next = parseFloat(next ? next : 0);
+    }
 
     if (sortOrder === 'ascending') {
-      return operand1 - operand2;
+      return previous - next;
     } else {
-      return operand2 - operand1;
+      return next - previous;
     }
   });
   return results;
